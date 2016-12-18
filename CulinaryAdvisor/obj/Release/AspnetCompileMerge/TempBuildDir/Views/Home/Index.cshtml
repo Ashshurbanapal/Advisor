@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Advisor</title>
+
+</head>
+<body>
+    <div class="banner">
+    </div>
+
+    <header ng-controller="HeaderController as vm">
+        <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+
+        <div class="container headerDiv">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="#/" class="btn btn-default mainButtons">Home</a>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <a href="#/Advisor" class="btn btn-default mainButtons"> Get advice</a>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <a href="#/AddRecipe" class="btn btn-default mainButtons"> Cookbook</a>
+                </div>
+                <div class="col-md-2 col-md-offset-1">
+                    <a href="#/AddQuote" class="btn btn-default mainButtons"> Quotebook</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="banner">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9" id="main">
+                <div ng-view></div>
+            </div>
+            <div class="col-md-3" ng-app="App.Quote">
+                <div class="container row">
+                    <div class="col-md-8">
+                        <label>The random quote from my quote book. Only for your!</label>
+                    </div>
+                    <div class="col-md-4">
+                        <img ng-src="/fonts/NannyOggMark.jpg" class="imageInDiv" />
+                    </div>
+                </div>
+                <div ng-controller="QuoteController as vm">
+                    <p>"{{vm.quote.Text}}"</p>
+                    <p>- {{vm.quote.Author}}</p>
+                    <input class="btn btn-default" type="button" value="Another one" ng-click="vm.next()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/js/lib")
+@Scripts.Render("~/bundles/js/app")
+</html>

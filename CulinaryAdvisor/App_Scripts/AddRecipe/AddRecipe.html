@@ -1,0 +1,74 @@
+﻿<h2>Add new recipe</h2>
+<div ng-app="App.AddRecipe">
+    <div>
+        <div class="container row speakDiv">
+            <div class="col-md-2">
+                <img ng-src="/fonts/NannyOggMark.jpg" class="imageInDiv"/>
+            </div>
+            <div class="col-md-3">
+                <label>{{vm.nannySpeak}}</label>
+            </div>
+        </div>
+        <div ng-if="vm.isAdded" class="container row">
+            <div class="col-md-3">
+                <input class="btn btn-default" type="button" value="To main page" ng-click="vm.cancel()"/>
+            </div>
+            <div class="col-md-3">
+                <input class="btn btn-primary" type="button" value="Add another one" ng-click="vm.anotherOne()" />
+            </div>
+        </div>
+        <form novalidate name="NewRecipeForm">
+            <div style="color: red">{{vm.message}}</div>
+            <table class="addTable" ng-if="!vm.isAdded">
+                <tr>
+                    <td class="addTd"><label>Name of the dish : </label></td>
+                    <td>
+                        <input class="form-control inputText" type="text" ng-model="recipe.Name" name="uName" ng-class="submitted?'ng-dirty':''" required autofocus/>
+                        <span class="error" ng-show="(NewRecipeForm.uName.$dirty || submitted) && NewRecipeForm.uName.$error.required">Name of the dish required!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Dish type : </label></td>
+                    <td>
+                        <select ng-model="vm.typeSelection" class="form-control inputText">
+                            <option ng-repeat="type in vm.types">{{type.Name}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Description : </label></td>
+                    <td class="textAreaTd">
+                        <textarea class="form-control inputTextArea" ng-model="recipe.Description" name="uDescription" ng-class="submitted?'ng-dirty':''"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Ingredients : </label></td>
+                    <td class="textAreaTd">
+                        <textarea class="inputTextArea form-control" ng-model="recipe.Ingredients" name="uIngredients" ng-class="submitted?'ng-dirty':''" required></textarea>
+                        <span class="error" ng-show="(NewRecipeForm.uProcess.$dirty || submitted) && NewRecipeForm.uProcess.$error.required">Ingredients required!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Cooking Process : </label></td>
+                    <td class="textAreaTd">
+                        <textarea class="form-control inputTextArea" ng-model="recipe.Process" name="uProcess" ng-class="submitted?'ng-dirty':''" required></textarea>
+                        <span class="error" ng-show="(NewRecipeForm.uProcess.$dirty || submitted) && NewRecipeForm.uProcess.$error.required">Cooking Process required!</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Your Name : </label></td>
+                    <td>
+                        <input class="form-control inputText" type="text" ng-model="recipe.Author" name="uName" ng-class="submitted?'ng-dirty':''"/>
+                    </td>
+                </tr>
+                <tr ng-if="!vm.isAdded">
+                    <td></td>
+                    <td>
+                        <input class="btn btn-primary" type="button" value="{{vm.submitText}}" ng-click="vm.saveData(recipe)"/>
+                        <input class="btn btn-default" type="button" value="Cancel" ng-click="vm.cancel()"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

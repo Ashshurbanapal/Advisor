@@ -1,0 +1,48 @@
+﻿<h2>Add new quote</h2>
+<div ng-app="App.Quote">
+    <div>
+        <div class="container row speakDiv">
+            <div class="col-md-2">
+                <img ng-src="/fonts/NannyOggMark.jpg" class="imageInDiv" />
+            </div>
+            <div class="col-md-3">
+                <label>{{vm.nannySpeak}}</label>
+            </div>
+        </div>
+        <div ng-if="vm.isAdded" class="container row">
+            <div class="col-md-3">
+                <input class="btn btn-default" type="button" value="To main page" ng-click="vm.cancel()" />
+            </div>
+            <div class="col-md-3">
+                <input class="btn btn-primary" type="button" value="Add another one" ng-click="vm.anotherOne()" />
+            </div>
+        </div>
+        <form novalidate name="NewQuoteForm">
+            <div style="color: red">{{vm.message}}</div>
+            <table class="addTable" ng-if="!vm.isAdded">
+                <tr>
+                    <td class="addTd"><label>Text : </label></td>
+                    <td class="textAreaTd">
+                        <textarea class="form-control inputTextArea" ng-model="quote.Text" name="uText" ng-class="submitted?'ng-dirty':''" required></textarea>
+                        <span class="error" ng-show="(NewQuoteForm.uText.$dirty || submitted) && NewQuoteForm.uText.$error.required">Text required!</span>
+                        <!--<input class="form-control" type="text" ng-model="recipe.Description" name="uDescription"/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="addTd"><label>Quote's author : </label></td>
+                    <td class="inputText">
+                        <input class="form-control inputText" type="text" ng-model="quote.Author" name="uAuthor" ng-class="submitted?'ng-dirty':''"/>
+                        <span class="error" ng-show="(NewQuoteForm.uAuthor.$dirty || submitted) && NewQuoteForm.uAuthor.$error.required">Author required!</span>
+                    </td>
+                </tr>
+                <tr ng-if="!isAdded">
+                    <td></td>
+                    <td>
+                        <input class="btn btn-primary" type="button" value="{{vm.submitText}}" ng-click="vm.saveData(quote)"/>
+                        <input class="btn btn-default" type="button" value="Cancel" ng-click="vm.cancel()"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

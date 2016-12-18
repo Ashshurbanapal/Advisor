@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HttpError404</title>
+</head>
+<body class="errorDiv">
+    <div class="errorBanner">
+        <img class="bannerImg" src="\fonts\Oops.jpg" />
+    </div>
+    <h2>Oops! Error!</h2>
+    <div>
+
+        <h3>404: Page Not Found</h3>
+
+        @if (ViewBag.Message != null)
+        {
+            <div>
+                @ViewBag.Message;
+            </div>
+        }
+        <div>
+            <h4>Now we know about the error and try to solve it as quickly as possible. Sorry for the inconvenience</h4>
+        </div>
+        <div>
+            <a href="/Error/ToMainPage" class="btn btn-primary">To main page</a>
+        </div>
+    </div>
+</body>
+@Styles.Render("~/Content/css")
+</html>
+

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HttpError404</title>
+</head>
+
+<body class="errorDiv">
+    <div class="errorBanner">
+        <img class="bannerImg" src="\fonts\Oops.jpg" />
+    </div>
+    <h2>Oops! Error!</h2>
+    <div>
+        @if (ViewBag.Message != null)
+        {
+            <div>
+                @ViewBag.Message;
+            </div>
+        }
+        <div>
+            <h4>Our web store temporarily unavailable. We try to solve error as quickly as possible. Sorry for the inconvenience</h4>
+        </div>
+    </div>
+</body>
+@Styles.Render("~/Content/css")
+</html>

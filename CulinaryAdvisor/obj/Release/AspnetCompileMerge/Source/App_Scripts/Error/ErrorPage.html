@@ -1,0 +1,23 @@
+﻿<div>
+    <div class="container row">
+        <div class="col-md-4">
+            <img ng-src="/fonts/NannyOggMark.jpg" class="imageInHome" />
+        </div>
+        <div class="col-md-8">
+            <h2>Oops! Something going wrong!</h2>
+            <p>We try to solve the problem as fast as possible!</p>
+            <input type="button" class="btn btn-default" value="{{vm.buttonText}}" ng-click="vm.show()" />
+            <div ng-if="isShow">{{vm.errorMessage}}</div>
+        </div>
+    </div>
+    <!--<div class="homeDiv">
+        <div class="textleft">
+            <h3>Oops! Something going wrong!</h3>
+            <p>We try to solve the problem as fast as possible!</p>
+            <input type="button" class="btn btn-default" value="{{vm.buttonText}}" ng-click="vm.show()"/>
+            <div ng-if="isShow">{{vm.errorMessage}}</div>
+        </div>
+        <img ng-src="/fonts/Nanny_Ogg.jpg" class="imageInHome"/>
+    </div>-->
+
+</div>

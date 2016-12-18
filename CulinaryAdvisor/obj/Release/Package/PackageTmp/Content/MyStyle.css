@@ -1,0 +1,70 @@
+﻿body {
+    background-image: url(background4.jpg);
+}
+
+.addTable {
+    max-width: ;
+    width: 100%;
+}
+
+.addTd {
+    width: 20%;
+}
+
+.textAreaTd {
+    height: 100px;
+}
+
+.inputText {
+    max-width: 100%;
+    width: 100%;
+}
+
+.inputTextArea {
+    max-width: 100%;
+    width: 100%;
+    height: inherit;
+    
+}
+
+.imageInDiv {
+    width: 100%;
+}
+
+.speakDiv {
+    margin-bottom: 15px;
+}
+
+.imageInHome {
+    width: 100%;
+    align-items: center;
+}
+
+.homeDiv {
+    text-align: center;
+}
+
+.textleft {
+    text-align: left;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.mainButtons {
+    width: 100%;
+}
+
+.headerDiv {
+    margin-bottom: 5%;
+}
+
+.errorBanner {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}

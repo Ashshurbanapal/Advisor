@@ -1,0 +1,48 @@
+﻿<h2>Get advice</h2>
+<div ng-app="App.Advisor">
+    <div>
+        <div class="container row speakDiv">
+            <div class="col-md-2">
+                <img ng-src="/fonts/NannyOggMark.jpg" class="imageInDiv" />
+            </div>
+            <div class="col-md-3">
+                <label>{{vm.nannySpeak}}</label>
+            </div>
+        </div>
+        <div class="container row">
+            <div class="col-md-4">
+                <select ng-model="vm.typeSelection" class="form-control inputText">
+                    <option ng-repeat="type in vm.types">{{type.Name}}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input class="btn btn-success" type="button" value="{{vm.button}}" ng-click="vm.looking()"/>
+            </div>
+        </div>
+        <div ng-if="vm.isFind">
+            <h3>{{vm.recipe.Name}}</h3>
+            <div ng-if="vm.recipe.Description!=null">
+                <div><label>Description</label>
+                </div>
+                <div>{{vm.recipe.Description}}</div>
+            </div>
+            <div>
+                <div>
+                    <label>Ingredients</label>
+                </div>
+                <div>{{vm.recipe.Ingredients}}</div>
+            </div>
+            <div>
+                <div>
+                    <label>Method</label>
+                </div>
+                <div>{{vm.recipe.Process}}</div>
+            </div>
+            <div ng-if="vm.recipe.Author!=null">
+                <div>
+                    <label>Author: </label> {{vm.recipe.Author}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
